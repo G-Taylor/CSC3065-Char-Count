@@ -12,6 +12,7 @@ install_dependencies:
   stage: build
   script:
     - npm install
+    - npm install request
   artifacts:
     paths:
       - node_modules/
