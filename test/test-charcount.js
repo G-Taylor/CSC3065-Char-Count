@@ -3,7 +3,7 @@ var charcount = require('../charcount');
 
 it('Char Count Test', function(done) {
         var t = 'hello world';
-        var a = t.length;
-        expect(charcount.counter(t)).to.equal(a);
+        var a = t.replace(/[0-9\s]/g, "");
+        expect(charcount.counter(t)).to.equal(a.length);
         done();
 });
