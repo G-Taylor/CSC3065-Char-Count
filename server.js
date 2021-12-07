@@ -19,10 +19,18 @@ app.get('/', (req,res) => {
     res.setHeader('Content-Type', 'application/json');
     res.setHeader('Access-Control-Allow-Origin', '*')
     var text = req.query.text;
-    var answer = charcount.counter(text);
 
-    output.string = 'Contains '+answer+ ' characters';
-    output.answer = answer;
+    if(text === ""){
+        output.error = true;
+        output.string = "No Text Entered";
+    } else if (text === undefined) {
+        output.error = true;
+        output.string = "Incorrect Parameters Entered";
+    } else {
+        var answer = charcount.counter(text);
+        output.string = 'Contains '+answer+ ' characters';
+        output.answer = answer;
+    }
 
     res.end(JSON.stringify(output));
 });

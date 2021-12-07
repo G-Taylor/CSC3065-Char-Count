@@ -1,5 +1,7 @@
 module.exports = {
     counter: function(t) {
-        return t.length;
+        // remove all whitespace and numbers
+        let cleanedString = t.replace(/[0-9\s]/g, "");
+        return cleanedString.length;
     }
 }
