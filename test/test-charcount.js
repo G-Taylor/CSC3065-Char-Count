@@ -13,7 +13,7 @@ it('Char Count Test', function(done) {
 it('API Empty String Test', function(done){
         let query = '?/text='
         request(url + query, function(error, response, body){
-                expect(response.statusCode).to.equal(200);
+                expect(body).to.equal('{"error":true,"string":"No Text Entered","answer":0}');
                 done();
         });
 });
