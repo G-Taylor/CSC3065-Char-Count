@@ -1,6 +1,6 @@
 var expect  = require('chai').expect;
 var charcount = require('../charcount');
-var http = require("https");
+var https = require("https");
 let url = 'http://charcount.40234272.qpc.hal.davecutting.uk';
 
 it('Char Count Test', function(done) {
@@ -12,7 +12,7 @@ it('Char Count Test', function(done) {
 
 it('API Empty String Test', function(done){
         let query = '?/text='
-        http.request(url + query, function(error, response, body){
+        https.request(url + query, function(error, response, body){
                 expect(body).to.equal('{"error":true,"string":"No Text Entered","answer":0}');
                 done();
         });
