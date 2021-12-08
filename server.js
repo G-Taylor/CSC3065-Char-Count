@@ -16,8 +16,6 @@ app.get('/', (req,res) => {
         'answer': 0
     };
 
-    res.setHeader('Content-Type', 'application/json');
-    res.setHeader('Access-Control-Allow-Origin', '*')
     var text = req.query.text;
 
     if(text === ""){
@@ -32,6 +30,8 @@ app.get('/', (req,res) => {
         output.answer = answer;
     }
 
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.end(JSON.stringify(output));
 });
 
